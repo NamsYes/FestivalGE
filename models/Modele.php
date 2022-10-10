@@ -1,9 +1,9 @@
 <?php
 function getbdd() {
     $user = 'root';
-    $pswd = '';
+    $pswd = 'root';
     $host = 'localhost';
-    $bdd = 'Festivalsport';
+    $bdd = 'festival';
     $dsn = "mysql:$host=localhost;dbname=$bdd";
     $connexion = new PDO($dsn, $user, $pswd);
     return $connexion;
