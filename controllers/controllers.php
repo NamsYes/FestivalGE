@@ -4,82 +4,52 @@ require 'models/Modele.php';
 
 function afficheEtablissement() 
 {
-    require'vueEtablissement.php'; 
+    require 'vueEtablissement.php'; 
 }
 
 function afficheAccueil() 
 {
-    require'vueAccueil.php'; 
+    require 'vueAccueil.php'; 
 }
 
 function afficheAttributions() 
 {
-    require'vueAttributions.php'; 
+    require 'vueAttributions.php'; 
 }
 
 function afficheCreationEtablissement() 
 {
-    require'vueCreationEtablissement.php'; 
+    require 'vueCreationEtablissement.php'; 
 }
 
 function afficheDetailEtablissement() 
 {
-    require'vueDetailEtablissement.php'; 
+    require 'vueDetailEtablissement.php'; 
 }
 
 function afficheDonnerNbChambres() 
 {
-    require'vueDonnerNbChambres.php'; 
+    require 'vueDonnerNbChambres.php'; 
 }
 
 function afficheErreur() 
 {
-    require'vueErreur.php'; 
+    require 'vueErreur.php'; 
 }
 
 function afficheModificationAttributions() 
 {
-    require'vueModificationAttributions.php'; 
+    require 'vueModificationAttributions.php'; 
 }
 
 function afficheModificationEtablissement() 
 {
-    require'vueModificationEtablissement.php'; 
+    require 'vueModificationEtablissement.php'; 
 }
 
 function afficheSuppressionEtablissement() 
 {
-    require'vueSuppressionEtablissement.php'; 
+    require 'vueSuppressionEtablissement.php'; 
 }
 
-
-
-$connexion=getbdd();
-function erreur($msgErreur) {
-    require'vueErreur.php';
-}
-
-    
-   
-  switch($x){
- case 1:    
-    $nomtitre=vueTemplate;
-  break;    
- case 2:    
-    $x=vueTemplate;
-  break;    
- case 3:    
-    $x=vueTemplate; 
-  break;    
- case 4:    
-    $x=vueTemplate;   
-  break;
-  case 5:    
-    $x=vueTemplate; 
-  break;    
- case 6:    
-    $x=vueTemplate;   
-  break;
-}   
-
-?> 
+?>
