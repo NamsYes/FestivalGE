@@ -1,7 +1,6 @@
 <?php  
 require 'models/Modele.php';
 
-
 function afficheEtablissement() 
 {
     require 'vueEtablissement.php'; 
@@ -53,3 +52,20 @@ function afficheSuppressionEtablissement()
 }
 
 ?>
+
+
+<?php 
+/*
+switch($nomtitre) {
+
+    case "listeEtablissements":
+        {
+       function afficheEtablissement()
+       break;
+
+
+    default:
+      function afficheAccueil()
+ }
+ */
+ ?>

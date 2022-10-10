@@ -1,7 +1,6 @@
 <?php $nomtitre = 'établissements'; ?>
 <?php ob_start(); ?>
 <?php
-include("models/Modele.php"); 
 
 
 

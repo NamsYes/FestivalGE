@@ -25,7 +25,7 @@
 <table width='80%' cellpadding='0' cellspacing='0' class='tabMenu' align='center'>
    <tr>
       <td class='menu'><a class='$lacc' href='index.php'>Accueil</a></td>
-      <td class='menu' ><a class='$leta' href='vueEtablissement.php' >
+      <td class='menu' ><a class='$leta' href='index.php?action=etablissement' >
       Gestion établissements</a></td>
       <td class='menu'><a class='$latt' href='vueAttributions.php'>
       Attributions chambres</a></td>

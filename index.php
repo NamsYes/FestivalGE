@@ -1,13 +1,23 @@
 <?php 
-require 'models/Modele.php';
+require 'controllers/controllers.php';
+
+
 try{
     getbdd();
-    require 'vueAccueil.php';
+    
 }
 catch (PDOException $e) {
+    echo"ergerg";
     $msgErreur = $e->getMessage();
     die();
     require 'vueErreur.php';
 }
-?>
 
+if($_GET['action'] == 'etablissement')
+afficheEtablissement();
+
+else {
+    afficheAccueil();
+}
+
+?>

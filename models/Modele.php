@@ -1,7 +1,7 @@
 <?php
 function getbdd() {
     $user = 'root';
-    $pswd = '';
+    $pswd = 'root';
     $host = 'localhost';
     $bdd = 'Festivalsport';
     $dsn = "mysql:$host=localhost;dbname=$bdd";
