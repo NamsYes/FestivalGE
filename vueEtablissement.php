@@ -1,7 +1,4 @@
-<?php 
-
-$nomtitre = 'Etablissements';
-?>
+<?php $nomtitre = 'Etablissements'; ?>
 
 <?php ob_start(); 
 
@@ -22,10 +19,9 @@ $result = $req->fetchAll();  ?>
       <td colspan='4'>Etablissements</td>
    </tr>
 
-<!-- 
-//Body of the table
+<!-- Body of the table -->
 
-//Display with a loop -->
+<!-- Display with a loop -->
 <?php foreach ($result as $row):                        
    $id = $row['id']; ?>
    
@@ -68,6 +64,10 @@ $result = $req->fetchAll();  ?>
      </tr>
    </table>
 
+
+
+
+   
 <!-- Display without PDO  -->
 
 <!-- <table width='70%' cellspacing='0' cellpadding='0' align='center' class='tabNonQuadrille'>

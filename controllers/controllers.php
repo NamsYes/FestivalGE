@@ -2,33 +2,39 @@
 require 'models/Modele.php';
 require 'PageTemplate.php';
 
-
 if (isset($_GET['page'])) {
     
     $page =$_GET['page'];
     
     switch ($page) {
+
+        case 'Accueil' :
+
+            afficheAccueil();
+            break;
         
         case 'Etablissement' :
-    
+
             afficheEtablissement();
             break;
     
-        // case 'images' :
+        case 'Attribution' :
     
-        //     require 'Vueimages.php';
-        //     break;
+            afficheAttributions();
+            break;
     
-        // case 'home' :
+        default :
+            echo 'Vous essayer de vous rendre sur une page inexistante';
+            break;
     
         // require 'Vueindex.php';
     
         //     break;
         
     }
+    
     } else {
-        echo 'Erreur';
+        echo 'Vous essayer de vous rendre sur une page inexistante';
     }
     
- 
- ?>
+

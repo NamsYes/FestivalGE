@@ -28,8 +28,7 @@
       <tr>
          <td class='menu'><a class='$lacc' href='index.php?page=Accueil'>Accueil</a></td>
          <td class='menu' ><a class='$leta' href='index.php?page=Etablissement'>Gestion établissements</a></td>
-         <td class='menu'><a class='$latt' href='vueAttributions.php'>
-         Attributions chambres</a></td>
+         <td class='menu'><a class='$latt' href='index.php?page=Attribution'>Attributions chambres</a></td>
       </tr> 
    </table>
  <br>

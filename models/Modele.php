@@ -9,6 +9,7 @@ function getbdd() {
     return $connexion;
 }
 
+//Display Fonctions :
 
 function afficheEtablissement() 
 {

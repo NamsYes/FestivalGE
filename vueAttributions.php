@@ -1,90 +1,95 @@
-<?php $nomtitre = 'attributions'; ?>
-<?php ob_start(); ?>
-<?php
+<?php $nomtitre = 'attributions'; 
+ob_start(); 
+$connexion=getbdd(); 
 
-include("models/Modele.php"); 
+// Consult the attribution of all etablishment 
 
-$connexion=getbdd();
-// CONSULTER LES ATTRIBUTIONS DE TOUS LES ÉTABLISSEMENTS
+// There must be at least one etablishment offering rooms to display the link of modification 
 
-// IL FAUT QU'IL Y AIT AU MOINS UN ÉTABLISSEMENT OFFRANT DES CHAMBRES POUR  
-// AFFICHER LE LIEN VERS LA MODIFICATION
 $nbEtab=obtenirNbEtabOffrantChambres($connexion);
-if ($nbEtab!=0)
-{
-   echo "
-   <table width='75%' cellspacing='0' cellpadding='0' align='center'
-   <tr><td>
-   <a href='vueModificationAttributions.php?action=demanderModifAttrib'>
-   Effectuer ou modifier les attributions</a></td></tr></table><br><br>";
+if ($nbEtab!=0); ?>
    
-   // POUR CHAQUE ÉTABLISSEMENT : AFFICHAGE D'UN TABLEAU COMPORTANT 2 LIGNES 
-   // D'EN-TÊTE ET LE DÉTAIL DES ATTRIBUTIONS
-   $req=obtenirReqEtablissementsAyantChambresAttribuées();
+   <table width='75%' cellspacing='0' cellpadding='0' align='center'>
+      <tr>
+         <td>
+            <a href='vueModificationAttributions.php?action=demanderModifAttrib'>Effectuer ou modifier les attributions</a>
+         </td>
+      </tr>
+   </table> 
+   <br>
+
+   <!-- For each etablishment display of a table comprising 2 lines (Header and details of etablishment) -->
+
+   <?php $req=obtenirReqEtablissementsAyantChambresAttribuées();
    $rsEtab= $connexion->query($req);
-   $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
-   // BOUCLE SUR LES ÉTABLISSEMENTS AYANT DÉJÀ DES CHAMBRES ATTRIBUÉES
-   while($lgEtab!=FALSE)
-   {
-      $idEtab=$lgEtab['id'];
-      $nomEtab=$lgEtab['nom'];
+   $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC); ?>
    
-      echo "
+
+   <!-- Loop on the etablishment with already assigned rooms -->
+
+  <?php while($lgEtab!=FALSE): 
+      $idEtab=$lgEtab['id'];
+      $nomEtab=$lgEtab['nom']; ?>
+   
       <table width='75%' cellspacing='0' cellpadding='0' align='center' 
-      class='tabQuadrille'>";
+      class='tabQuadrille'>
       
-      $nbOffre=$lgEtab["nombreChambresOffertes"];
+      <?php $nbOffre=$lgEtab["nombreChambresOffertes"];
       $nbOccup=obtenirNbOccup($connexion, $idEtab);
-      // Calcul du nombre de chambres libres dans l'établissement
-      $nbChLib = $nbOffre - $nbOccup;
+
+      // Calcul of the number of free rooms in the etablishment
+      $nbChLib = $nbOffre - $nbOccup; ?>
       
-      // AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE 
-      echo "
+      <!-- Display of the 1st header line -->
+      
       <tr class='enTeteTabQuad'>
-         <td colspan='2' align='left'><strong>$nomEtab</strong>&nbsp;
-         (Offre : $nbOffre&nbsp;&nbsp;Disponibilités : $nbChLib)
+         <td colspan='2' align='left'><strong><?=$nomEtab ?></strong>&nbsp;(Offre : <?= $nbOffre?> &nbsp;&nbsp;Disponibilités : <?= $nbChLib?>)
          </td>
-      </tr>";
-          
-      // AFFICHAGE DE LA 2ÈME LIGNE D'EN-TÊTE 
-      echo "
+      </tr>
+
+      <!-- Display of the 2nd header line -->
+
       <tr class='ligneTabQuad'>
-         <td width='65%' align='left'><i><strong>Nom groupe</strong></i></td>
-         <td width='35%' align='left'><i><strong>Chambres attribuées</strong></i>
+         <td width='65%' align='left'>
+            <i><strong>Nom groupe</strong></i>
          </td>
-      </tr>";
+
+         <td width='35%' align='left'>
+            <i><strong>Chambres attribuées</strong></i>
+         </td>
+      </tr>
         
-      // AFFICHAGE DU DÉTAIL DES ATTRIBUTIONS : UNE LIGNE PAR GROUPE AFFECTÉ 
-      // DANS L'ÉTABLISSEMENT       
+      <!-- Display of the attribution details : AFFICHAGE DU DÉTAIL DES ATTRIBUTIONS : ONE LINE PER AFFECTED GROUP IN THE BUILDING -->
+      <?php 
       $req=obtenirReqGroupesEtab($idEtab);
       $rsGroupe= $connexion->query($req);
       $lgGroupe=$rsGroupe->fetch(PDO::FETCH_ASSOC);
                
-      // BOUCLE SUR LES GROUPES (CHAQUE GROUPE EST AFFICHÉ EN LIGNE)
-      while($lgGroupe)//!=FALSE)
-      {
+      // Loop on the group 
+
+      while($lgGroupe):
+
          $idGroupe=$lgGroupe['id'];
          $nomGroupe=$lgGroupe['nom'];
          $nbpers = $lgGroupe['nombrePersonnes'];
-         echo "
+         ?>
+
          <tr class='ligneTabQuad'>
-            <td width='65%' align='left'>$nomGroupe ($nbpers membres)</td>";
-         // On recherche si des chambres ont déjà été attribuées à ce groupe
-         // dans l'établissement
-         $nbOccupGroupe=obtenirNbOccupGroupe($connexion, $idEtab, $idGroupe);
-         echo "
-            <td width='35%' align='left'>$nbOccupGroupe </td>
-         </tr>";
-         $lgGroupe=$rsGroupe->fetch(PDO::FETCH_ASSOC);
-      } // Fin de la boucle sur les groupes  
-      
-      echo "
-      </table><br>";
-      $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
-   } // Fin de la boucle sur les établissements
+            <td width='65%' align='left'><?=$nomGroupe?> (<?=$nbpers?> membres)</td>
+            <?php $nbOccupGroupe=obtenirNbOccupGroupe($connexion, $idEtab, $idGroupe); ?>
+            <td width='35%' align='left'><?=$nbOccupGroupe ?> </td>
+         </tr>
+         
+         <?php $lgGroupe=$rsGroupe->fetch(PDO::FETCH_ASSOC); ?>
+
+      <?php endwhile; ?>
+      </table>
+      <br>
+
+      <?php $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC); ?>
+
+   <?php endwhile;?>
 }
 
-?>
 <?php $contenu =ob_get_clean(); ?>
-<?php require 'pageTemplate.php'; ?>
 <?php echo $contenu; ?>
