@@ -3,9 +3,7 @@
 $nomtitre = 'Etablissements';
 ?>
 
-<?php ob_start(); ?>
-<?php
-
+<?php ob_start(); 
 
 //Connection to the database
 $connexion = getbdd();
@@ -14,7 +12,7 @@ $connexion = getbdd();
 $req = $connexion->query(obtenirReqEtablissements());      
 
 //Conversion to associative array 
-$result = $req->fetchAll();    ?>
+$result = $req->fetchAll();  ?>
 
 <!-- Head of the table -->
                                      
@@ -25,107 +23,97 @@ $result = $req->fetchAll();    ?>
    </tr>
 
 <!-- 
-//corps du tableau
+//Body of the table
 
 //Display with a loop -->
 <?php foreach ($result as $row):                        
    $id = $row['id']; ?>
    
 		<tr class='ligneTabNonQuad'>
-         <td width='52%'><?=$row['nom']?></td>
+
+         <td width='52%'>
+            <?=$row['nom']?>
+         </td>
          
          <td width='16%' align='center'> 
-         <a href='vueDetailEtablissement.php?id=$id'>Voir détail</a></td>
+            <a href='vueDetailEtablissement.php?id=$id'>Voir détail</a>
+         </td>
 
          <td width='16%' align='center'> 
-         <a href='vueModificationEtablissement.php?action=demanderModifEtab&amp;id=$id'> Modifier</a></td>
+            <a href='vueModificationEtablissement.php?action=demanderModifEtab&amp;id=$id'> Modifier</a>
+         </td>
 
-         // S'il existe déjà des attributions pour l'établissement, il faudra
-         // d'abord les supprimer avant de pouvoir supprimer l'établissement
-         if (!existeAttributionsEtab($connexion, $id))
-			{
-            echo "
-            <td width='16%' align='center'> 
-            <a href='vueSuppressionEtablissement.php?action=demanderSupprEtab&amp;id=$id'>
-            Supprimer</a></td>";
-         }
-         else
-         {
-            echo "
-            <td width='16%'>(".obtenirNbOccup($connexion, $id)." attributions)
-            </td>
-            </tr>";          
+         <!--If there are already assignments for the establishment, they must first be deleted before the establishment can be deleted. -->
+         <?php if (!existeAttributionsEtab($connexion, $id)): ?>
 			
+            <td width='16%' align='center'> 
+               <a href='vueSuppressionEtablissement.php?action=demanderSupprEtab&amp;id=$id'> Supprimer</a>
+            </td>
+      
+         <?php else: ?>
+         
+         <td width='16%'>
+            <?=(obtenirNbOccup($connexion, $id)." attributions") ?>
+         </td>
+
+        <?php endif;?>
+
+      </tr>
+
 <?php endforeach;?>
 
-   <?php
-
-//enqueue du tableau
-echo "
+<!-- Footer of the table -->
       <tr class='ligneTabNonQuad'>
-         <td colspan='4'><a href='vueCreationEtablissement.php?action=demanderCreEtab'>
-         Création d'un établissement</a ></td>
+         <td colspan='4'><a href='vueCreationEtablissement.php?action=demanderCreEtab'>Création d'un établissement</a ></td>
      </tr>
-   </table>"
-;
+   </table>
 
-/* affichage sans pdo (mysql_connect est obsolete)
+<!-- Display without PDO  -->
 
-// AFFICHER L'ENSEMBLE DES ÉTABLISSEMENTS
-// CETTE PAGE CONTIENT UN TABLEAU CONSTITUÉ D'1 LIGNE D'EN-TÊTE ET D'1 LIGNE PAR
-// ÉTABLISSEMENT
-
-echo "
-<table width='70%' cellspacing='0' cellpadding='0' align='center' class='tabNonQuadrille'>
+<!-- <table width='70%' cellspacing='0' cellpadding='0' align='center' class='tabNonQuadrille'>
    <tr class='enTeteTabNonQuad'>
       <td colspan='4'>Etablissements</td>
-   </tr>";
-     
+   </tr> -->
+<!--      
+
    $req=obtenirReqEtablissements();
    $rsEtab=mysql_query($req, $connexion);
    $lgEtab=mysql_fetch_array($rsEtab);
-   BOUCLE SUR LES ÉTABLISSEMENTS
-   while ($result)
-   {
-      echo "
-		<tr class='ligneTabNonQuad'>
-         <td width='52%'>$result['nom']</td>
+
+   //Loop for dispay Etablishment 
+   while ($result): ?> -->
+   
+		<!-- <tr class='ligneTabNonQuad'>
+         <td width='52%'><?=$result['nom']?></td>
          
          <td width='16%' align='center'> 
-         <a href='detailEtablissement.php?id=$id'>
-         Voir détail</a></td>
+            <a href='detailEtablissement.php?id=$id'>Voir détail</a>
+         </td>
          
          <td width='16%' align='center'> 
-         <a href='modificationEtablissement.php?action=demanderModifEtab&amp;id=$id'>
-         Modifier</a></td>";
-      	
-         // S'il existe déjà des attributions pour l'établissement, il faudra
-         // d'abord les supprimer avant de pouvoir supprimer l'établissement
-			if (!existeAttributionsEtab($connexion, $id))
-			{
-            echo "
+            <a href='modificationEtablissement.php?action=demanderModifEtab&amp;id=$id'>Modifier</a>
+         </td>
+      	 -->
+         <!-- If there are already attributions for the establishment, it will be necessary delete them first before you can delete the establishment -->
+			<!-- if (!existeAttributionsEtab($connexion, $id)):?>
+		
             <td width='16%' align='center'> 
             <a href='suppressionEtablissement.php?action=demanderSupprEtab&amp;id=$id'>
             Supprimer</a></td>";
-         }
-         else
-         {
-            echo "
-            <td width='16%'>&nbsp; </td>";          
-			}
-			echo "
-      </tr>";
-      $lgEtab=mysql_fetch_array($rsEtab);
-   }   
-   echo "
+         
+            else : ?> 
+         
+            <td width='16%'>&nbsp; </td>       
+			endif; 
+      </tr>
+
+   $lgEtab=mysql_fetch_array($rsEtab);
+
+   endwhile; 
+   
    <tr class='ligneTabNonQuad'>
-      <td colspan='4'><a href='creationEtablissement.php?action=demanderCreEtab'>
-      Création d'un établissement</a ></td>
+      <td colspan='4'><a href='creationEtablissement.php?action=demanderCreEtab'>Création d'un établissement</a ></td>
   </tr>
-</table>";
-
-*/
-
-?>
+</table> !->$_COOKIE
 <?php $contenu =ob_get_clean(); ?>
 <?php echo $contenu; ?>
