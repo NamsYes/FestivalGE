@@ -1,71 +1,34 @@
 <?php  
 require 'models/Modele.php';
-
-function afficheEtablissement() 
-{
-    require 'vueEtablissement.php'; 
-}
-
-function afficheAccueil() 
-{
-    require 'vueAccueil.php'; 
-}
-
-function afficheAttributions() 
-{
-    require 'vueAttributions.php'; 
-}
-
-function afficheCreationEtablissement() 
-{
-    require 'vueCreationEtablissement.php'; 
-}
-
-function afficheDetailEtablissement() 
-{
-    require 'vueDetailEtablissement.php'; 
-}
-
-function afficheDonnerNbChambres() 
-{
-    require 'vueDonnerNbChambres.php'; 
-}
-
-function afficheErreur() 
-{
-    require 'vueErreur.php'; 
-}
-
-function afficheModificationAttributions() 
-{
-    require 'vueModificationAttributions.php'; 
-}
-
-function afficheModificationEtablissement() 
-{
-    require 'vueModificationEtablissement.php'; 
-}
-
-function afficheSuppressionEtablissement() 
-{
-    require 'vueSuppressionEtablissement.php'; 
-}
-
-?>
+require 'PageTemplate.php';
 
 
-<?php 
-/*
-switch($nomtitre) {
-
-    case "listeEtablissements":
-        {
-       function afficheEtablissement()
-       break;
-
-
-    default:
-      function afficheAccueil()
- }
- */
+if (isset($_GET['page'])) {
+    
+    $page =$_GET['page'];
+    
+    switch ($page) {
+        
+        case 'Etablissement' :
+    
+            afficheEtablissement();
+            break;
+    
+        // case 'images' :
+    
+        //     require 'Vueimages.php';
+        //     break;
+    
+        // case 'home' :
+    
+        // require 'Vueindex.php';
+    
+        //     break;
+        
+    }
+    } else {
+        echo 'Erreur';
+    }
+    
+ 
  ?>

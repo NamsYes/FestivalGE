@@ -1,4 +1,5 @@
 <?php $nomtitre = 'accueil'; ?>
+
 <?php ob_start(); ?>
 <table width='80%' cellspacing='0' cellpadding='0' align='center'>
    <tr>  
@@ -32,5 +33,5 @@
    </tr>
 </table>
 <?php $contenu = ob_get_clean(); ?>
-<?php require 'pageTemplate.php'; ?>
+
 <?php echo $contenu ?>

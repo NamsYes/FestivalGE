@@ -1,37 +1,44 @@
-<?php $nomtitre = 'établissements'; ?>
+<?php 
+
+$nomtitre = 'Etablissements';
+?>
+
 <?php ob_start(); ?>
 <?php
 
 
-
-//affichage avec pdo
+//Connection to the database
 $connexion = getbdd();
-$req = $connexion->query(obtenirReqEtablissements());       //attraper le resultat de la requete
-$result = $req->fetchAll(PDO::FETCH_ASSOC);           //le mettre dans un tableau associatif
 
-//entete du tableau
-echo "                                                
+//Preparation of the SQL reques
+$req = $connexion->query(obtenirReqEtablissements());      
+
+//Conversion to associative array 
+$result = $req->fetchAll();    ?>
+
+<!-- Head of the table -->
+                                     
 <table width='70%' cellspacing='0' cellpadding='0' align='center' class='tabNonQuadrille'>
+
    <tr class='enTeteTabNonQuad'>
       <td colspan='4'>Etablissements</td>
-   </tr>"
-;
+   </tr>
 
+<!-- 
 //corps du tableau
-foreach ($result as $row){                            //afficher le tout
-   $id = $row['id']; 
-   echo "
+
+//Display with a loop -->
+<?php foreach ($result as $row):                        
+   $id = $row['id']; ?>
+   
 		<tr class='ligneTabNonQuad'>
-         <td width='52%'>".$row['nom']."</td>
+         <td width='52%'><?=$row['nom']?></td>
          
          <td width='16%' align='center'> 
-         <a href='vueDetailEtablissement.php?id=$id'>
-         Voir détail</a></td>
+         <a href='vueDetailEtablissement.php?id=$id'>Voir détail</a></td>
 
          <td width='16%' align='center'> 
-         <a href='vueModificationEtablissement.php?action=demanderModifEtab&amp;id=$id'>
-         Modifier</a></td>"
-   ;
+         <a href='vueModificationEtablissement.php?action=demanderModifEtab&amp;id=$id'> Modifier</a></td>
 
          // S'il existe déjà des attributions pour l'établissement, il faudra
          // d'abord les supprimer avant de pouvoir supprimer l'établissement
@@ -48,8 +55,10 @@ foreach ($result as $row){                            //afficher le tout
             <td width='16%'>(".obtenirNbOccup($connexion, $id)." attributions)
             </td>
             </tr>";          
-			}  
-}
+			
+<?php endforeach;?>
+
+   <?php
 
 //enqueue du tableau
 echo "
@@ -119,5 +128,4 @@ echo "
 
 ?>
 <?php $contenu =ob_get_clean(); ?>
-<?php require 'pageTemplate.php'; ?>
 <?php echo $contenu; ?>
