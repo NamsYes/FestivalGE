@@ -8,6 +8,7 @@ insert into Etablissement values ('0350785N', 'College de Moka', '2 avenue Arist
 insert into Etablissement values ('0350123A', 'College Lamartine', '3, avenue des corsaires', '35404', 'Parame', '0299561459', null, 1,'Mme','Lefort','Anne',58);  
 insert into Etablissement values ('0351234W', 'College Leonard de Vinci', '2 rue Rabelais', '35418', 'Saint-Malo', '0299117474', null, 1,'M.','Durand','Pierre',60);   
 insert into Etablissement values ('05DF7D8Z', 'Centre de rencontres internationales', '37 avenue du R.P. Umbricht BP 108', '35407', 'Saint-Malo', '0299000000', null, 0, 'M.','Guenroc','Guy',200);
+insert into Etablissement values ('0101010D', 'Centre de namakan', '37 avenue du R.P. Umbricht BP 108', '35407', 'Saint-Malo', '0299000000', 'namakan@yahoo.fr', 0, 'M.','Guenroc','Guy',200);
 
 -- Certains groupes sont incomplètement renseignés
 insert into Groupe (id, nom, nombrepersonnes, nompays, hebergement) values ('g001','Equipe de Football Limoges',40,'France','O');

@@ -22,6 +22,11 @@ if (isset($_GET['page'])) {
     
             afficheAttributions();
             break;
+
+        case 'DetailEtablissement' :
+
+            afficheDetailEtablissement();
+            break;
     
         default :
             echo 'Vous essayer de vous rendre sur une page inexistante';
@@ -32,7 +37,7 @@ if (isset($_GET['page'])) {
         //     break;
         
     }
-    
+
     } else {
         echo 'Vous essayer de vous rendre sur une page inexistante';
     }

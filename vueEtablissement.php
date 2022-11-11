@@ -5,7 +5,7 @@
 //Connection to the database
 $connexion = getbdd();
 
-//Preparation of the SQL reques
+//Preparation of the SQL request
 $req = $connexion->query(obtenirReqEtablissements());      
 
 //Conversion to associative array 
@@ -32,7 +32,7 @@ $result = $req->fetchAll();  ?>
          </td>
          
          <td width='16%' align='center'> 
-            <a href='vueDetailEtablissement.php?id=$id'>Voir détail</a>
+            <a href='index.php?page=DetailEtablissement&id=<?= $id ?>'>Voir détail</a>
          </td>
 
          <td width='16%' align='center'> 
@@ -60,14 +60,12 @@ $result = $req->fetchAll();  ?>
 
 <!-- Footer of the table -->
       <tr class='ligneTabNonQuad'>
-         <td colspan='4'><a href='vueCreationEtablissement.php?action=demanderCreEtab'>Création d'un établissement</a ></td>
+         <td colspan='4'><a href='vueCreationEtablissement.php?page='>Création d'un établissement</a ></td>
      </tr>
    </table>
 
 
 
-
-   
 <!-- Display without PDO  -->
 
 <!-- <table width='70%' cellspacing='0' cellpadding='0' align='center' class='tabNonQuadrille'>
@@ -84,7 +82,7 @@ $result = $req->fetchAll();  ?>
    while ($result): ?> -->
    
 		<!-- <tr class='ligneTabNonQuad'>
-         <td width='52%'><?=$result['nom']?></td>
+         <td width='52%'>=$result['nom']?></td>
          
          <td width='16%' align='center'> 
             <a href='detailEtablissement.php?id=$id'>Voir détail</a>

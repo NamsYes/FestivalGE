@@ -84,11 +84,16 @@ function obtenirReqEtablissementsAyantChambresAttribuées()
 
 function obtenirDetailEtablissement($connexion, $id) //VALIDE
 {
-   $req="select * from Etablissement where id='$id'";
+   $connexion = getbdd();
+   $req='SELECT * from Etablissement where id="'.$id.'"';
    //$rsEtab=mysql_query($req, $connexion);
    //return mysql_fetch_array($rsEtab);
-   $res = $connexion->query($req);
-   return $res->fetch(PDO::FETCH_ASSOC);
+   $res = $connexion->prepare($req);
+   $res->execute();
+   $statement = $res->fetch();
+  
+   return $statement;
+  
 }
 
 function supprimerEtablissement($connexion, $id)
