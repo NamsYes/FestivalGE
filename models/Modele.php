@@ -13,52 +13,52 @@ function getbdd() {
 
 function afficheEtablissement() 
 {
-    require 'vueEtablissement.php'; 
+    require 'Vues/vueEtablissement.php'; 
 }
 
 function afficheAccueil() 
 {
-    require 'vueAccueil.php'; 
+    require 'Vues/vueAccueil.php'; 
 }
 
 function afficheAttributions() 
 {
-    require 'vueAttributions.php'; 
+    require 'Vues/vueAttributions.php'; 
 }
 
 function afficheCreationEtablissement() 
 {
-    require 'vueCreationEtablissement.php'; 
+    require 'Vues/vueCreationEtablissement.php'; 
 }
 
 function afficheDetailEtablissement() 
 {
-    require 'vueDetailEtablissement.php'; 
+    require 'Vues/vueDetailEtablissement.php'; 
 }
 
 function afficheDonnerNbChambres() 
 {
-    require 'vueDonnerNbChambres.php'; 
+    require 'Vues/vueDonnerNbChambres.php'; 
 }
 
 function afficheErreur() 
 {
-    require 'vueErreur.php'; 
+    require 'Vues/vueErreur.php'; 
 }
 
 function afficheModificationAttributions() 
 {
-    require 'vueModificationAttributions.php'; 
+    require 'Vues/vueModificationAttributions.php'; 
 }
 
 function afficheModificationEtablissement() 
 {
-    require 'vueModificationEtablissement.php'; 
+    require 'Vues/vueModificationEtablissement.php'; 
 }
 
 function afficheSuppressionEtablissement() 
 {
-    require 'vueSuppressionEtablissement.php'; 
+    require 'Vues/vueSuppressionEtablissement.php'; 
 }
 
 

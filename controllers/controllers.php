@@ -1,65 +1,66 @@
 <?php  
 require 'models/Modele.php';
-require 'PageTemplate.php';
+require 'Vues/PageTemplate.php';
 
 if (isset($_GET['page'])) {
     
     $page =$_GET['page'];
     
-    switch ($page) {
+    if (true) {
+        switch ($page) {
 
-        case 'Accueil' :
+            case 'Accueil' :
 
-            afficheAccueil();
-            break;
-        
-        case 'Etablissement' :
-
-            afficheEtablissement();
-            break;
-    
-        case 'Attribution' :
-    
-            afficheAttributions();
-            break;
-
-        case 'DetailEtablissement' :
-
-            afficheDetailEtablissement();
-            break;
-
-        case 'CreaEtablissement' :
-
-            afficheCreationEtablissement();
-            break;   
-        
-
-        case 'SuppEtablissement' :
-
-            afficheSuppressionEtablissement();
-            break;     
+                afficheAccueil();
+                break;
             
-        case 'ModifAttribution' :
+            case 'Etablissement' :
 
-            afficheModificationAttributions();
-            break; 
+                afficheEtablissement();
+                break;
+        
+            case 'Attribution' :
+        
+                afficheAttributions();
+                break;
+
+            case 'DetailEtablissement' :
+
+                afficheDetailEtablissement();
+                break;
+
+            case 'CreaEtablissement' :
+
+                afficheCreationEtablissement();
+                break;   
             
-        case 'DonnerNbChambre' :
 
-            afficheDonnerNbChambres();
-            break; 
+            case 'SuppEtablissement' :
 
-        default :
-            echo 'Vous essayer de vous rendre sur une page inexistante';
-            break;
+                afficheSuppressionEtablissement();
+                break;     
+                
+            case 'ModifAttribution' :
+
+                afficheModificationAttributions();
+                break; 
+                
+            case 'DonnerNbChambre' :
+
+                afficheDonnerNbChambres();
+                break; 
+
+
+            default :
+
+                echo afficheErreur();
+                break; 
+
+        }
+    }  
     
-        // require 'Vueindex.php';
-        
-        //     break;
-        
+    else 
+    {
+        afficheErreur();
     }
-
-    } else {
-        echo 'Vous essayer de vous rendre sur une page inexistante';
-    }
-    
+}
