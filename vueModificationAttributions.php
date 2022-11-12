@@ -1,7 +1,6 @@
 <?php $nomtitre = 'modifs attributions'; ?>
 <?php ob_start(); ?>
 <?php
-include("models/Modele.php"); 
 
 
 $connexion=getbdd();
@@ -18,7 +17,7 @@ $nb=$nbEtabOffrantChambres+1;
 // Détermination du pourcentage de largeur des colonnes "établissements"
 $pourcCol=50/$nbEtabOffrantChambres;
 
-$action=$_REQUEST['action'];
+$action=$_REQUEST['page'];
 
 // Si l'action est validerModifAttrib (cas où l'on vient de la page 
 // donnerNbChambres.php) alors on effectue la mise à jour des attributions dans 
@@ -127,7 +126,7 @@ class='tabQuadrille'>";
             {
                echo "
                <td class='reserveSiLien'>
-               <a href='vueDonnerNbChambres.php?idEtab=$idEtab&amp;idGroupe=$idGroupe&amp;nbChambres=$nbChLib'>
+               <a href='index.php?page=DonnerNbChambre&idEtab=$idEtab&idGroupe=$idGroupe&nbChambres=$nbChLib'>
                __</a></td>";
             }
             else
@@ -158,5 +157,4 @@ echo "
 ?>
 
 <?php $contenu =ob_get_clean(); ?>
-<?php require 'pageTemplate.php'; ?>
 <?php echo $contenu; ?>

@@ -13,7 +13,7 @@ $nom=$lgEtab['nom'];
 
 // Cas 1ère étape (on vient de listeEtablissements.php)
 
-if ($_REQUEST['valid']=='yes'):  ?>
+if ($_REQUEST['valid']=='yes'):?>
 
    <br><center><h5>Souhaitez-vous vraiment supprimer l'établissement <?= $nom?> ? 
    <br><br>
@@ -24,7 +24,7 @@ if ($_REQUEST['valid']=='yes'):  ?>
 <!-- Cas 2ème étape (on vient de suppressionEtablissement.php) -->
 
 <?php else : 
-   supprimerEtablissement($connexion, $id); ?>
+   supprimerEtablissement($connexion, $id);?>
 
    <br><br><center><h5>L'établissement <?=$nom ?> a été supprimé</h5>
    <a href='index.php?page=Etablissement'>Retour</a></center>";

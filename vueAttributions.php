@@ -12,7 +12,7 @@ if ($nbEtab!=0); ?>
    <table width='75%' cellspacing='0' cellpadding='0' align='center'>
       <tr>
          <td>
-            <a href='vueModificationAttributions.php?action=demanderModifAttrib'>Effectuer ou modifier les attributions</a>
+            <a href='index.php?page=ModifAttribution'>Effectuer ou modifier les attributions</a>
          </td>
       </tr>
    </table> 

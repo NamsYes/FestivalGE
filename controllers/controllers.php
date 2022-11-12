@@ -37,14 +37,24 @@ if (isset($_GET['page'])) {
         case 'SuppEtablissement' :
 
             afficheSuppressionEtablissement();
-            break;       
+            break;     
             
+        case 'ModifAttribution' :
+
+            afficheModificationAttributions();
+            break; 
+            
+        case 'DonnerNbChambre' :
+
+            afficheDonnerNbChambres();
+            break; 
+
         default :
             echo 'Vous essayer de vous rendre sur une page inexistante';
             break;
     
         // require 'Vueindex.php';
-    
+        
         //     break;
         
     }
@@ -53,4 +63,3 @@ if (isset($_GET['page'])) {
         echo 'Vous essayer de vous rendre sur une page inexistante';
     }
     
-
