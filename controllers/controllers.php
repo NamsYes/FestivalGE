@@ -27,7 +27,12 @@ if (isset($_GET['page'])) {
 
             afficheDetailEtablissement();
             break;
-    
+
+        case 'CreaEtablissement' :
+
+            afficheCreationEtablissement();
+            break;   
+            
         default :
             echo 'Vous essayer de vous rendre sur une page inexistante';
             break;

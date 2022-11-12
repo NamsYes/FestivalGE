@@ -60,7 +60,7 @@ $result = $req->fetchAll();  ?>
 
 <!-- Footer of the table -->
       <tr class='ligneTabNonQuad'>
-         <td colspan='4'><a href='vueCreationEtablissement.php?page='>Création d'un établissement</a ></td>
+         <td colspan='4'><a href='index.php?page=CreaEtablissement'>Création d'un établissement</a ></td>
      </tr>
    </table>
 
