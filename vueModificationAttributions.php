@@ -17,12 +17,12 @@ $nb=$nbEtabOffrantChambres+1;
 // Détermination du pourcentage de largeur des colonnes "établissements"
 $pourcCol=50/$nbEtabOffrantChambres;
 
-$action=$_REQUEST['page'];
+$update=$_REQUEST['update'];
 
 // Si l'action est validerModifAttrib (cas où l'on vient de la page 
 // donnerNbChambres.php) alors on effectue la mise à jour des attributions dans 
 // la base 
-if ($action=='validerModifAttrib')
+if ($update=='validerModifAttrib')
 {
    $idEtab=$_REQUEST['idEtab'];
    $idGroupe=$_REQUEST['idGroupe'];
@@ -114,7 +114,7 @@ class='tabQuadrille'>";
             $nbMax = $nbChLib + $nbOccupGroupe;
             echo "
             <td class='reserve'>
-            <a href='vueDonnerNbChambres.php?idEtab=$idEtab&amp;idGroupe=$idGroupe&amp;nbChambres=$nbMax'>
+            <a href='index.php?page=DonnerNbChambre&idEtab=$idEtab&amp;idGroupe=$idGroupe&amp;nbChambres=$nbMax'>
             $nbOccupGroupe</a></td>";
          }
          else
@@ -124,10 +124,11 @@ class='tabQuadrille'>";
             // des chambres libres sinon rien n'est affiché     
             if ($nbChLib != 0)
             {
-               echo "
+               ?>
                <td class='reserveSiLien'>
-               <a href='index.php?page=DonnerNbChambre&idEtab=$idEtab&idGroupe=$idGroupe&nbChambres=$nbChLib'>
-               __</a></td>";
+               <a href='index.php?page=DonnerNbChambre&idEtab=<?=$idEtab?>&idGroupe=<?=$idGroupe?>&nbChambres=<?=$nbChLib?>'>
+               __</a></td>
+               <?php
             }
             else
             {

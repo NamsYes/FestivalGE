@@ -13,12 +13,11 @@ echo $idGroupe;
 
 ?>
 <form method='POST' action='index.php?page=ModifAttribution'>
-	<input type='hidden' value='validerModifAttrib' name='action'>
-   <input type='hidden' value='$idEtab' name='idEtab'>
-   <input type='hidden' value='$idGroupe' name='idGroupe'>
+	<input type='hidden' value='validerModifAttrib' name='update'>
+   <input type='hidden' value='<?=$idEtab?>' name='idEtab'>
+   <input type='hidden' value='<?=$idGroupe?>' name='idGroupe'>
    
    <?php $nomGroupe=obtenirNomGroupe($connexion, $idGroupe); ?>
-   
 
    <br><center>
       <h5>Combien de chambres souhaitez-vous pour le groupe <?=$nomGroupe?> dans cet établissement ?"&nbsp;
