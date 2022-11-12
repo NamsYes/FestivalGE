@@ -8,8 +8,7 @@ $connexion=getbdd();
 $idEtab=$_REQUEST['idEtab'];
 $idGroupe=$_REQUEST['idGroupe'];
 $nbChambres=$_REQUEST['nbChambres'];
-echo $nbChambres;
-echo $idGroupe;
+
 
 ?>
 <form method='POST' action='index.php?page=ModifAttribution'>

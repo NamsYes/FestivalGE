@@ -17,7 +17,9 @@ $nb=$nbEtabOffrantChambres+1;
 // Détermination du pourcentage de largeur des colonnes "établissements"
 $pourcCol=50/$nbEtabOffrantChambres;
 
+if (isset($_REQUEST['update'] )) {
 $update=$_REQUEST['update'];
+
 
 // Si l'action est validerModifAttrib (cas où l'on vient de la page 
 // donnerNbChambres.php) alors on effectue la mise à jour des attributions dans 
@@ -29,7 +31,7 @@ if ($update=='validerModifAttrib')
    $nbChambres=$_REQUEST['nbChambres'];
    modifierAttribChamb($connexion, $idEtab, $idGroupe, $nbChambres);
 }
-
+}
 echo "
 <table width='80%' cellspacing='0' cellpadding='0' align='center' 
 class='tabQuadrille'>";
