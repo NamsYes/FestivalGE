@@ -9,59 +9,54 @@ $connexion=getbdd();
 
 // Déclaration du tableau des civilités
 $tabCivilite=array("M.","Mme","Melle");  
-
 $action=$_REQUEST['page'];
-
-echo $_REQUEST['page'];
-
 
 // S'il s'agit d'une création et qu'on ne "vient" pas de ce formulaire (on 
 // "vient" de ce formulaire uniquement s'il y avait une erreur), il faut définir 
 // les champs à vide sinon on affichera les valeurs précédemment saisies
 
 if ($action=='CreaEtablissement') 
-{  
-   $id='';
-   $nom='';
-   $adresseRue='';
-   $ville='';
-   $codePostal='';
-   $tel='';
-   $adresseElectronique='';
-   $type=0;
-   $civiliteResponsable='Monsieur';
-   $nomResponsable='';
-   $prenomResponsable='';
-   $nombreChambresOffertes='';
-}
+   {  
+      $id='';
+      $nom='';
+      $adresseRue='';
+      $ville='';
+      $codePostal='';
+      $tel='';
+      $adresseElectronique='';
+      $type=0;
+      $civiliteResponsable='Monsieur';
+      $nomResponsable='';
+      $prenomResponsable='';
+      $nombreChambresOffertes='';
+   }
 else
-{
-   
-   $id=$_REQUEST['id']; 
-   $nom=$_REQUEST['nom']; 
-   $adresseRue=$_REQUEST['adresseRue'];
-   $codePostal=$_REQUEST['codePostal'];
-   $ville=$_REQUEST['ville'];
-   $tel=$_REQUEST['tel'];
-   $adresseElectronique=$_REQUEST['adresseElectronique'];
-   $type=$_REQUEST['type'];
-   $civiliteResponsable=$_REQUEST['civiliteResponsable'];
-   $nomResponsable=$_REQUEST['nomResponsable'];
-   $prenomResponsable=$_REQUEST['prenomResponsable'];
-   $nombreChambresOffertes=$_REQUEST['nombreChambresOffertes'];
-   
+   {
+      $id=$_REQUEST['id']; 
+      $nom=$_REQUEST['nom']; 
+      $adresseRue=$_REQUEST['adresseRue'];
+      $codePostal=$_REQUEST['codePostal'];
+      $ville=$_REQUEST['ville'];
+      $tel=$_REQUEST['tel'];
+      $adresseElectronique=$_REQUEST['adresseElectronique'];
+      $type=$_REQUEST['type'];
+      $civiliteResponsable=$_REQUEST['civiliteResponsable'];
+      $nomResponsable=$_REQUEST['nomResponsable'];
+      $prenomResponsable=$_REQUEST['prenomResponsable'];
+      $nombreChambresOffertes=$_REQUEST['nombreChambresOffertes'];
+      
 
-   verifierDonneesEtabC($connexion, $id, $nom, $adresseRue, $codePostal, $ville, 
-                        $tel, $nomResponsable, $nombreChambresOffertes);      
-   if (nbErreurs()==0)
-   {        
-      creerEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, $ville,  
-                         $tel, $adresseElectronique, $type, $civiliteResponsable, 
-                         $nomResponsable, $prenomResponsable, $nombreChambresOffertes);
-   }   
-}
+      verifierDonneesEtabC($connexion, $id, $nom, $adresseRue, $codePostal, $ville, 
+                           $tel, $nomResponsable, $nombreChambresOffertes);      
+      if (nbErreurs()==0)
+      {        
+         creerEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, $ville,  
+                           $tel, $adresseElectronique, $type, $civiliteResponsable, 
+                           $nomResponsable, $prenomResponsable, $nombreChambresOffertes);
+      }   
+   }
 
- ?>
+?>
 
 <form method='POST' action='index.php?page=CreaEtablissement'>
    

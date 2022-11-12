@@ -32,6 +32,12 @@ if (isset($_GET['page'])) {
 
             afficheCreationEtablissement();
             break;   
+        
+
+        case 'SuppEtablissement' :
+
+            afficheSuppressionEtablissement();
+            break;       
             
         default :
             echo 'Vous essayer de vous rendre sur une page inexistante';

@@ -43,7 +43,7 @@ $result = $req->fetchAll();  ?>
          <?php if (!existeAttributionsEtab($connexion, $id)): ?>
 			
             <td width='16%' align='center'> 
-               <a href='vueSuppressionEtablissement.php?action=demanderSupprEtab&amp;id=$id'> Supprimer</a>
+               <a href='index.php?page=SuppEtablissement&id=<?= $id ?>&valid=yes'> Supprimer</a>
             </td>
       
          <?php else: ?>
