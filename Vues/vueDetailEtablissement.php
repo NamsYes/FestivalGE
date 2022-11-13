@@ -1,8 +1,6 @@
 <?php $nomtitre = 'Detail Etablissement'; ?>
 <?php ob_start(); ?>
-<?php
-
-$connexion=getbdd();
+<?php $connexion=getbdd(); 
 $id=$_GET['id'];
 ?>
 

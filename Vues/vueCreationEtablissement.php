@@ -146,7 +146,8 @@ else
                   <?php endif;?>
              <?php endfor;?>
 
-            </select>&nbsp; &nbsp; &nbsp; &nbsp; Nom * : 
+            </select>
+            &nbsp; &nbsp; &nbsp; &nbsp; Nom * : 
             <input type="text" Placeholder='Nom du responsable' value="<?php $nomResponsable ?>" name=
             "nomResponsable" size="26" maxlength="25">
             &nbsp; &nbsp; &nbsp; &nbsp; Prénom: 
