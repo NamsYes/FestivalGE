@@ -27,23 +27,25 @@ $result = $req->fetchAll();  ?>
    
 		<tr class='ligneTabNonQuad'>
 
-         <td width='52%'>
+         <td width='20%'>
             <?=$row['nom']?>
          </td>
          
-         <td width='16%' align='center'> 
-            <a href='index.php?page=DetailEtablissement&id=<?= $id ?>'>Voir détail</a>
+         <td width='20%' align='center'> 
+            <a class="lien" href='index.php?page=DetailEtablissement&id=<?= $id ?>'>Voir détail</a>
          </td>
 
-         <td width='16%' align='center'> 
-            <a href='vueModificationEtablissement.php?action=demanderModifEtab&amp;id=$id'> Modifier</a>
+         <td width='20%' align='center'> 
+            <a class="lien" href='vueModificationEtablissement.php?action=demanderModifEtab&amp;id=$id'> Modifier</a>
          </td>
+         
 
          <!--If there are already assignments for the establishment, they must first be deleted before the establishment can be deleted. -->
          <?php if (!existeAttributionsEtab($connexion, $id)): ?>
+            
 			
             <td width='16%' align='center'> 
-               <a href='index.php?page=SuppEtablissement&id=<?= $id ?>&valid=yes'> Supprimer</a>
+               <a class="lien" href='index.php?page=SuppEtablissement&id=<?= $id ?>&valid=yes'> Supprimer</a>
             </td>
       
          <?php else: ?>
@@ -60,7 +62,7 @@ $result = $req->fetchAll();  ?>
 
 <!-- Footer of the table -->
       <tr class='ligneTabNonQuad'>
-         <td colspan='4'><a href='index.php?page=CreaEtablissement'>Création d'un établissement</a ></td>
+         <td colspan='4'><a class="lien" href='index.php?page=CreaEtablissement'>Créer un établissement</a ></td>
      </tr>
    </table>
 

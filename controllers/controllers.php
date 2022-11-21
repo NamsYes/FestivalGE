@@ -53,7 +53,7 @@ if (isset($_GET['page'])) {
 
             default :
 
-                echo afficheErreur();
+                 afficheErreur();
                 break; 
 
         }
@@ -61,6 +61,6 @@ if (isset($_GET['page'])) {
     
     else 
     {
-        afficheErreur();
+        echo 'hrbrbhrb';
     }
 }

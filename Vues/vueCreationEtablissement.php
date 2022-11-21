@@ -168,7 +168,7 @@ else
          <td align='left'><input type='reset' value='Annuler' name='annuler'> </td>
       </tr>
       <tr>
-         <td colspan='2' align='center'><a href='index.php?page=Etablissement'>Retour</a> </td>
+         <td colspan='2' align='center'><a class="lien" href='index.php?page=Etablissement'>Retour</a> </td>
       </tr>
    </table>
 </form>

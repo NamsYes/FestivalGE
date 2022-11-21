@@ -15,21 +15,21 @@
    <table width="100%" cellpadding="0" cellspacing="0">
    <tr> 
       <td class="titre">
-         Festival Sp'Or <br>
-         <span id="texteNiveau2" class="texteNiveau2">
-         H&eacute;bergement des équipes</span><br>&nbsp;
+         <h1>Festival Sp'Or</h1><br>
+         <i>H&eacute;bergement des équipes</i><br>&nbsp;
       </td>
    </tr>
    </table>
+   <br>
 
    <!--  table with the menus -->
   
-   <table width='80%' cellpadding='0' cellspacing='0' class='tabMenu' align='center'>
-      <tr>
-         <td class='menu'><a class='$lacc' href='index.php?page=Accueil'>Accueil</a></td>
-         <td class='menu' ><a class='$leta' href='index.php?page=Etablissement'>Gestion établissements</a></td>
-         <td class='menu'><a class='$latt' href='index.php?page=Attribution'>Attributions chambres</a></td>
-      </tr> 
-   </table>
+   <nav>
+      <ul>
+         <li><a href="index.php?page=Accueil">ACCUEIL</a>  </li>
+         <li><a href="index.php?page=Etablissement">GESTION ETABLISSEMENTS</a> </li>
+         <li><a href="index.php?page=Attribution">ATTRIBUTIONS CHAMBRES</a> </li>
+      </ul>
+   </nav>
  <br>
 </body>

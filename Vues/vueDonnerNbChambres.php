@@ -30,7 +30,7 @@ $nbChambres=$_REQUEST['nbChambres'];
 
    <input type='submit' value='Valider' name='valider'> 
    <input type='reset' value='Annuler' name='Annuler'><br><br>
-   <a href='index.php?page=ModifAttribution'>Retour</a>
+   <a class="lien"href='index.php?page=ModifAttribution'>Retour</a>
    </center>
 </form>
 
